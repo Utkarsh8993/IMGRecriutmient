@@ -16,6 +16,11 @@ const userSchema = new mongoose.Schema({
     isPart : {
         type:Boolean,
         default:false
+    },
+    requestKey :{
+        type:String,
+        default:'',
+        required:false
     }
 })
 

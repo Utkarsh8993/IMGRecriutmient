@@ -19,7 +19,7 @@ const quizRoomSchema = mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId,
             ref:'Questions'
         }
-    ]
+    ],
 })
 
 module.exports = mongoose.model('QuizRoom' , quizRoomSchema)

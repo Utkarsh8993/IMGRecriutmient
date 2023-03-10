@@ -30,7 +30,8 @@ app.use(express.json());
 app.use('/' , express.static(path.join(__dirname , 'public')))
 //routes add
 app.use('/' ,require('./routes/root'));
-app.use('/users' , require( ))
+app.use('/users' , require('./routes/userRoutes'));
+app.use('/quiz' , require('./routes/quizRoutes'));
 
 //routing bad requests
 app.all('*' , (req , res)=>{

@@ -8,3 +8,17 @@
 09/03/2023	11:13:21	24f3d087-0c98-4054-850c-7bbbda92ffb0	GET	/	undefined
 09/03/2023	11:20:26	5263f39d-44ce-4345-81f1-db5f119ea98d	GET	/	undefined
 09/03/2023	11:20:29	558288d7-ac5e-435b-8c90-28734e1583ef	GET	/sd	undefined
+10/03/2023	16:38:16	b4453fd0-a12a-45ea-9749-5711b418bdb7	POST	/users	undefined
+10/03/2023	16:38:57	f5219a90-fd59-4f1e-b072-ada39702e7af	GET	/users	undefined
+10/03/2023	16:40:06	6bdb0193-858c-451f-a4fd-c233046985cf	GET	/users	undefined
+10/03/2023	16:40:09	b7c737bc-df40-47d9-9aa3-b165ce62b85a	POST	/users	undefined
+10/03/2023	16:40:13	cececc3e-e742-4240-91a7-74b03006c0f1	GET	/users	undefined
+10/03/2023	16:53:11	5870481f-36bc-4d2d-8f27-b14659b6bb40	GET	/users	undefined
+10/03/2023	16:53:33	ccddae99-71f2-4954-92c2-2f96a1056aef	POST	/users	undefined
+10/03/2023	16:53:44	3ca39390-7839-4374-8691-faf71fa3a9ca	GET	/users	undefined
+10/03/2023	16:54:29	547139eb-bd09-4888-9b32-1d85705e7aa1	GET	/quiz	undefined
+10/03/2023	16:55:19	1557c866-cc12-4f19-934f-703bdb7f82cb	GET	/quiz/	undefined
+10/03/2023	16:55:22	ed51b7f4-e4a0-4b73-b8bc-e393774a4150	POST	/quiz/	undefined
+10/03/2023	16:57:09	2f040601-a0ae-4661-8dc1-a9599ce34ad8	POST	/quiz/join	undefined
+10/03/2023	16:57:23	84f6b08f-5048-4fd1-bdb6-720902443a8e	POST	/quiz/join	undefined
+10/03/2023	16:59:05	ea36610e-bb63-4ca5-ba3f-23f38a0dfcb7	POST	/quiz/join	undefined
