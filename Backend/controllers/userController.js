@@ -16,30 +16,38 @@ const createNewUser = asyncHandler(async (req , res) =>{
     const duplicate = await User.findOne({ username }).lean().exec();
     if(duplicate) return res.status(409).json({message : 'Duplicate Username'});
     const hashedPWD = await bcrypt.hash(password , 10);
-    const userObject = { username , "password" : hashedPWD };
+    const userObject = { username , "password" : hashedPWD }
     const user  = await User.create(userObject);
 
     if(user){ 
-        res.status(200).json({message : `New USer ${username} created`})
+        res.status(200).json({message : `New USer ${username} created with id:${user._id}`})
     }  else {
         res.status(400).json({message : 'Invalid  Data'});
     }
 })
 
 const groupRequest = asyncHandler(async (req ,res) => {
-    const { requestKey } = req.body;
-    const user = await User.find({ requestKey });
+    const { id , requestKey } = req.body;
+    const user = await User.findOne({_id :  id });
     if(user.isPart) return res.status(400).json({message : 'Already Part of Group'});
     const group = await Group.findOne({ joinKey : requestKey });
     group.UserArray.push(user);
-    user.forEach((person) => person.isPart = true);
+    user.isPart = true;
     await user.save();
     await group.save();
-    return res.status(200).json({message : 'Successfully joined the group ' })
+    return res.status(200).json({message : 'Successfully joined the group '})
+})
+
+const getAllPropOfUser = asyncHandler(async(req , res)=>{
+    const {_id } = req.user;
+    const user =await User.findOne({_id : _id}).selected('-password').exec();
+    if(!user) return res.status(400).json({message : 'No such User Exits'});
+    res.status(200).json(user);
 })
 
 module.exports = {
     getAllUser,
     createNewUser,
-    groupRequest
+    groupRequest,
+    getAllPropOfUser
 }

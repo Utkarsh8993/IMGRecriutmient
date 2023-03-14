@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 
+const dbOptions = {
+    useNewUrlParser : true,
+    useUnifiedTopology :true
+}
+
 const connectDB = async () =>{
     try {
         await mongoose.connect(process.env.DATABASE_URI);
@@ -8,4 +13,4 @@ const connectDB = async () =>{
     }
 }
 
-module.exports = connectDB
+module.exports = {connectDB , dbOptions}

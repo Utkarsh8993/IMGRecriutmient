@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
     },
     password : {
         type : String,
+        default:'test123',
         required : true
     },
     quizPlayed : {
@@ -17,11 +18,18 @@ const userSchema = new mongoose.Schema({
         type:Boolean,
         default:false
     },
-    requestKey :{
-        type:String,
-        default:'',
-        required:false
-    }
+    questionCorrect : {
+        type:Number,
+        default:0
+    },
+    roles : {
+        player : {
+            type:Number,
+            default:1000
+        },
+        leader:Number 
+    },
+    token : String
 })
 
 module.exports = mongoose.model('User' , userSchema)
