@@ -9,17 +9,19 @@ const Groups = require('../models/Groups');
 
 
 const createQuizRoom = asyncHandler(async (req , res)=>{
+    if(!req?.user?._id) return res.status(401).json({message : 'Unauthorized'});
     const user = await User.findOne({_id : req.user._id});
-    if(!user) return res.status(401).json({message : 'Unauthorized'})
-    const  quizRoomObj = {
+    if(req?.body?.questions) return res.status(400).json({ message : 'Questions are required for a quiz room' })
+   if(!user) return res.status(401).json({message : 'Unauthorized'})
+    const quizRoomObj = {
        RoomID :uuid().slice(0 , 4),
        Groups : [],
-       Questions: await Questions.find().exec(),
+       Questions: req.body.questions
     }
     const quizRoom = await QuizRoom.create(quizRoomObj);
     if(quizRoom){
         return res.status(200).json({
-            RoomID : quizRoom.RoomID 
+            quizRoom
         })
     } else{
         return res.sendStatus(400)

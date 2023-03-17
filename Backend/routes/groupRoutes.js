@@ -7,6 +7,6 @@ router.route('/')
     .delete(groupController.deleteGroup)
     .patch(groupController.updatePoints)
 router.route('/users')
-    .post(groupController.getAllUserOfGroup)
+    .get(groupController.getAllUserOfGroup)
 
 module.exports = router

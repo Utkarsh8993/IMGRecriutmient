@@ -1,0 +1,285 @@
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.logo11 {
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-image: url(/public/logo1@3x.png);
+  background-size: cover;
+  min-width: 100%;
+}
+.logo1,
+.signIn {
+  position: relative;
+}
+.logo1 {
+  text-decoration: none;
+  width: 20.44rem;
+  height: 7rem;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.signIn {
+  flex: 1;
+  font-weight: 500;
+}
+.signInWrapper {
+  flex: 1;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.segnIn,
+.segnIn1,
+.signInWrapper {
+  display: flex;
+  flex-direction: row;
+}
+.segnIn1 {
+  width: 9.81rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+.segnIn {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.userIcon {
+  position: relative;
+  width: 1.88rem;
+  height: 1.88rem;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.email {
+  border: 0;
+  font-family: var(--font-roboto);
+  font-size: var(--font-size-11xl);
+  background-color: var(--color-white);
+  border-radius: var(--br-9xs);
+  width: 19.75rem;
+  padding: 0 var(--padding-8xs);
+  box-sizing: border-box;
+  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-star
+}
+.username1 {
+  border-radius: var(--br-9xs);
+  background-color: var(--color-white);
+  width: 19.75rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--padding-8xs);
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-mini);
+}
+.googleJpeg {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.google {
+  cursor: pointer;
+  border: 0;
+  padding: 0.63rem;
+  background-color: var(--color-white);
+  border-radius: 7px;
+  width: 14.69rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+.buttonArrowChild,
+.vectorIcon {
+  position: absolute;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.buttonArrowChild {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 25px;
+}
+.vectorIcon {
+  height: 31.76%;
+  width: 31.76%;
+  top: 34.12%;
+  right: 34.12%;
+  bottom: 34.12%;
+  left: 34.12%;
+}
+.buttonArrow {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  width: 5.31rem;
+  height: 5.31rem;
+  flex-shrink: 0;
+}
+.bySigningIn {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+}
+.bySigningInYouAgreeToThWrapper {
+  width: 37.44rem;
+  height: 3.5rem;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  min-width: 94%;
+  max-width: 100%;
+  text-align: center;
+  font-size: 1.44rem;
+  color: #e8e8e8;
+}
+.mainBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3.63rem;
+  margin: 0 auto;
+  flex-shrink: 1;
+  font-size: 3.13rem;
+  color: var(--color-white);
+  font-family: var(--font-roboto);
+  min-width: 25vw;
+  min-height: 100vh;
+  flex-grow: 4;
+  animation: forwards;
+}
+.mainBox.animate {
+  animation: 2s ease 0s 1 normal forwards slide-in-top;
+}
+.verticalLine{
+  width: 0.38rem;
+  height: 100vh;
+  flex-grow: 1;
+}
+.image {
+  width: 43.75rem;
+  height: 32.06rem;
+  object-fit: cover;
+  margin: 0 auto;
+  flex-grow: 5;
+  min-height: 555px;
+}
+.macbookPro142 {
+  position: absolute;
+  background-color: #000;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+@media screen and (max-width: 1200px) {
+  .logo1Parent {
+    min-height: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+  .macbookPro142 {
+    min-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    position: relative;
+    display: flex;
+  }
+}
+@media screen and (max-width: 960px) {
+  .logo1,
+  .segnIn {
+    display: flex;
+  }
+  .segnIn {
+    flex-shrink: 3;
+  }
+  .logo1Parent {
+    width: auto;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    max-height: 100%;
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+  }
+  .verticalLine,
+  .image {
+    position: relative;
+    margin: 0 auto;
+    display: none;
+  }
+  .macbookPro142 {
+    max-height: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    position: absolute;
+    display: flex;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 420px) {
+  .logo1 {
+    width: 19.19rem;
+    height: 5.38rem;
+    display: flex;
+    flex-shrink: 10;
+  }
+  .segnIn {
+    display: flex;
+    flex-shrink: 3;
+  }
+  .logo1Parent {
+    width: auto;
+    height: auto;
+    gap: 3.5rem;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 25%;
+    max-width: 50%;
+    min-height: 0.63rem;
+    max-height: 80%;
+  }
+  .macbookPro142 {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+  }
+}

@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router()
+const authControllers = require('../controllers/authController')
 const passport = require('passport')
+
 
 router.route('/google')
     .get(passport.authenticate('google' , {
@@ -10,9 +12,8 @@ router.route('/google')
         prompt:'consent'
     }) )
 router.route('/google/redirect')
-    .get(passport.authenticate('google'), (req , res)=>{
-        res.send(req.user);
-    })
-    
+    .get(passport.authenticate('google'),authControllers.handlePassportLogin)
+router.route('/custom')
+    .post(authControllers.handleLogin)    
 
 module.exports = router

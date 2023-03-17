@@ -29,7 +29,8 @@ const userSchema = new mongoose.Schema({
         },
         leader:Number 
     },
-    token : String
+    token : String,
+    imgLink:String
 })
 
 module.exports = mongoose.model('User' , userSchema)

@@ -14,7 +14,7 @@ const {logEvents} = require('./middleware/logger');
 const bodyParser = require('body-parser');
 const passportSetup = require('./config/passport-setup');
 const passport = require('passport');
-const authCheck = require('./middleware/authCheck');
+const verifyJWT = require('./middleware/verifyJWT');
 
 //session support
 const session = require('express-session');
@@ -59,7 +59,9 @@ app.use('/' , express.static(path.join(__dirname , 'public')))
 //routes add
 app.use('/' ,require('./routes/root'));
 app.use('/auth' , require('./routes/authRoutes'));
-app.use(authCheck)
+
+
+app.use(verifyJWT)
 app.use('/users' , require('./routes/userRoutes'));
 app.use('/quiz' , require('./routes/quizRoutes'));
 app.use('/groups' , require('./routes/groupRoutes'));

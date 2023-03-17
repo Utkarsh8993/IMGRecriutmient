@@ -7,10 +7,12 @@ router.route('/')
     .post(quizController.createQuizRoom)
     .delete(quizController.deleteQuizRoom)
 router.route('/:id')
-    .post(quizController.enterQuizRoom)
     .get(quizController.getAllGroups)
     .post(groupController.createNewGroup)
 router.route('questions/:id')
     .get(quizController.getAllQuestion)
+router.route('/join')
+    .post(quizController.enterQuizRoom)
 
+    
 module.exports = router
