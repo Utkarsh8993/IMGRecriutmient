@@ -80,6 +80,11 @@ const handleRegister =asyncHandler( async (req,res) =>{
 const handleLogout = (req,res) =>{
     console.log('hellop')
     if(!req?.cookies?.jwt ||!req?.cookies?.decoder ) return res.status(204).json({message : 'No cookie'})
+    const user = User.findByIdAndUpdate(req.user._id , {
+        isPart:false,
+        isTrue:false,
+        isCreater:false
+    })
     res.clearCookie('jwt');
     res.clearCookie('decoder')
     res.status(200).json({message : 'Logged Out Succefully'})

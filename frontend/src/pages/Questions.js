@@ -71,7 +71,7 @@ const Questions = ({ socket }) => {
     socket?.on('nextClicked' ,async () =>{
       console.log('next clicked')
       const question = response[questionIndex];
-      if (select === question.correct_answer) {
+      if (select === question?.correct_answer) {
         dispatch(handleScoreChange(score + 1));
       }
       if (questionIndex + 1 < response.length) {

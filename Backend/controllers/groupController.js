@@ -103,15 +103,15 @@ const updatePoints = asyncHandler(async (req , res)=>{
             for (let j = 0; j < userArray.length; j++) {
                 const userId = userArray[j].toString();
                 if(req.body.leaderId === userId){
-                   await Group.findByIdAndUpdate(element , {
-                        points : req.body.score
-                   })
-                   const users = group.userArray
+                   const currentGroup =  Group.findById(element);
+                   currentGroup.points += req.body.score;
+                   const users = currentGroup.userArray
+                   await currentGroup.save();
                    for (let i = 0; i < users.length; i++) {
                     const element = users[i];
-                    await User.findByIdAndUpdate(element , {
-                        questionCorrect : +req.body.score
-                    })
+                    const user = await User.findById(element)
+                    user.questionCorrect += req.body.score;
+                    await user.save();
                    }
                 }
             } 

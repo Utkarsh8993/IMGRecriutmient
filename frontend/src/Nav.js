@@ -47,15 +47,15 @@ const Nav = (props) => {
               <div className="home-link">
                 <a className="play" onClick={() => goToSettings()}>Play</a>
               </div>
-              <img
-                className="chevrondownoutline-icon"
-                alt=""
-                src="/chevrondownoutline.svg"
-              />
             </button>
-            <a className="home-link-wrapper">
+           <a className="home-link-wrapper">
               <a className="home-link1">
                 <a className="play" href="#aboutus">About</a>
+              </a>
+            </a>
+           <a className="home-link-wrapper">
+              <a className="home-link1">
+                <a className="play" onClick={() => navigate('/quizroom')}>Enter</a>
               </a>
             </a>
             <a className="home-link-wrapper">

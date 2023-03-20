@@ -92,11 +92,9 @@ io.on('connection' , (socket) =>{
     })
     socket.on('join-group' , ({ groupId }) =>{
         console.log(`user joined group`)
-        socket.join(groupId);
     })
     socket.on('next' , ({ groupId }) =>{
         console.log('next')
-        console.log(groupId)
         io.to(groupId).emit('nextClicked')
     })
     socket.on('groupExit' , ({groupId}) =>{

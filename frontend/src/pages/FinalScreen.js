@@ -48,6 +48,7 @@ const FinalScreen = () => {
       },{
         withCredentials:true
       })
+      console.log(exit)
     } catch (error) {
       console.log(error)
     }
@@ -60,7 +61,7 @@ const FinalScreen = () => {
        Your Score {score}
       </Typography>
       <Button onClick={handleBackToSettings} variant="outlined">
-        back to settings!
+        Back to Home
       </Button>
       {grps?.map((item, index) => (
         <ul>

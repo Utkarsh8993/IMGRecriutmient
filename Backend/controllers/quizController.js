@@ -114,24 +114,29 @@ const getAllUsersOfQuiz = asyncHandler(async (req,res) =>{
     })
 
 const endQuiz = asyncHandler(async(req,res) =>{
-    if(!req?.body?.quziId) return res.status(400).json({ message : 'The quiz id is required in the url'});
+    if(!req?.body?.quizId){return res.status(400).json({ message : 'The quiz id is required'})};
     try {
-        const quizRoom =await QuizRoom.findById(req.body.quziId);
+        const quizRoom =await QuizRoom.findById(req.body.quizId);
+        
         if(!quizRoom) return res.status(400).json({ message : 'The id is Invalid'});
         const GroupsArray = quizRoom.Groups.map((group) =>{ return group.toString() } );
         for (let index = 0; index < GroupsArray.length; index++) {
-            const element = GroupsArray[index].UserArray;
-            const userArray = element.map((user) =>{
+            const element = GroupsArray[index].toString();
+            const group = await Group.findById(element)
+            const users = group.UserArray
+            const userArray = users.map((user) =>{
                 return user.toString();
             })
             for (let j = 0; j < userArray.length; j++) {
                 const id = userArray[j];
-                const result = await User.findByIdAndUpdate(id,{
-                    isPart:false,
-                    isLeader:false,
-                    isCreater:false,
-                    quizPlayed: quizPlayed++
-                })
+                const user = await User.findById(id);
+                user.isPart = false;
+                user.isCreater = false;
+                user.isLeader = false;
+                user.quizPlayed++;
+                console.log(user)
+                const result = await user.save();
+                console.log(user)
                 if(!result) res.json({message : 'Unable to Update User'})
             }
             const result = await Groups.findByIdAndDelete(GroupsArray[index]._id)

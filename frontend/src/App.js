@@ -4,7 +4,6 @@ import api from "./api/users";
 import About from "./About";
 import { useState, useEffect } from "react";
 import MacBookPro141 from "./mac-book-pro141";
-import Login from "./Login";
 import Settings from "./pages/Settings";
 import FinalScreen from "./pages/FinalScreen";
 import CreateQuiz from "./pages/CreateQuiz";

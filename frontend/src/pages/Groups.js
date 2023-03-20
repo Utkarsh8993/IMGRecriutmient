@@ -73,7 +73,6 @@ const Groups = ({ socket }) => {
     const handleGrpExit = async (e,key) =>{
       console.log('hello')
         e.preventDefault();
-        
         const exit = await api.post("/groups/remove", {
            id : key
         },{

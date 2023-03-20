@@ -77,15 +77,6 @@ const MacBookPro142 = () => {
             </div>
           </div>
         </strong>
-        <form >
-        <input className={styles.email} type="text" placeholder="Email" />
-        <br></br>
-          <input 
-          className={styles.email}
-          type="text"
-          placeholder="Password"
-        />
-        </form>
         <a href="http://localhost:3500/auth/google" className={styles.google}>
           <img
             className={styles.googleJpeg}
