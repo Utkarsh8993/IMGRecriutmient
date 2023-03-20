@@ -8,5 +8,9 @@ router.route('/')
     .patch(groupController.updatePoints)
 router.route('/users')
     .get(groupController.getAllUserOfGroup)
+router.route('/add')
+    .post(groupController.addUserToGroup)
+router.route('/remove')
+    .post(groupController.removeTheUser)
 
 module.exports = router

@@ -14,7 +14,12 @@ const quizRoomSchema = mongoose.Schema({
             ref : 'Groups'
         }
     ],
-    Questions : []
+    Questions : [
+        {
+        type:Object,
+        required:true
+    }
+]
 })
 
 module.exports = mongoose.model('QuizRoom' , quizRoomSchema)

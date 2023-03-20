@@ -2,11 +2,6 @@ const mongoose = require('mongoose');
 const {v4:uuid} = require('uuid');
 
 const groupSchema = mongoose.Schema({
-    joinKey : {
-        type:String,
-        default: uuid().slice(0,4),
-        immutable:true
-    },
     name : {
         type : String,
         required : true,
@@ -23,6 +18,10 @@ const groupSchema = mongoose.Schema({
         type:Number,
         required:true,
         default:0
+    },
+    won : {
+        type:Boolean,
+        default:false
     }
 })
 

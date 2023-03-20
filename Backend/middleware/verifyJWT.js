@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 
 const verifyJWT =(req,res,next) =>{
-    const cookies = req.cookies;
+    const cookies = req.cookies;   
     if(!req?.cookies?.jwt || !req?.cookies?.decoder) return res.status(401).json({message : 'Unauthorized'});
     const token = cookies.jwt;
     const decoder = cookies.decoder;
@@ -18,7 +18,8 @@ const verifyJWT =(req,res,next) =>{
                 res.clearCookie('jwt', { httpOnly: true, sameSite: 'None'});
                 res.status(403).json({message : 'Invalid token'});
             }
-            res.status(200).json({message : 'Authorized'})
+            req.user = user
+            next();
         }
     )
 }

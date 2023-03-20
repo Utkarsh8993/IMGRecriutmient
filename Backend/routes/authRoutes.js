@@ -13,7 +13,12 @@ router.route('/google')
     }) )
 router.route('/google/redirect')
     .get(passport.authenticate('google'),authControllers.handlePassportLogin)
-router.route('/custom')
-    .post(authControllers.handleLogin)    
+router.route('/login')
+    .post(passport.authenticate('local' , {session : false}),authControllers.handleLogin)
+router.route('/register')
+    .post(authControllers.handleRegister)    
+router.route('/logout')
+    .get(passport.authenticate('jwt' , {session : false}) ,authControllers.handleLogout)
 
-module.exports = router
+
+    module.exports = router

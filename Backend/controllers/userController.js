@@ -42,8 +42,8 @@ const groupRequest = asyncHandler(async (req ,res) => {
 })
 
 const getAllPropOfUser = asyncHandler(async(req , res)=>{
-    const {_id } = req.user;
-    const user =await User.findOne({_id : _id}).selected('-password').exec();
+    if(!req?.user?._id) return res.status(200).json({message : 'Login to See This'})
+    const user =await User.findOne({_id : req.user._id});
     if(!user) return res.status(400).json({message : 'No such User Exits'});
     res.status(200).json(user);
 })
