@@ -42,3 +42,6 @@ Things Left:
 
 The amount the learning in this project was massive.Through all the difficulties we managed to do somthing which is better than nothing.
 Everthing did was scratch except css as all the lines of code was done by us.Please consider us
+
+At the end after submission:
+Trying to Host
