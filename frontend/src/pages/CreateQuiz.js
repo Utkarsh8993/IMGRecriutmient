@@ -9,6 +9,7 @@ import useAxios from "../hooks/useAxios";
 import { handleScoreChange , handleQuizID, handleQuizCode} from "../redux/actions";
 import api from "../api/users";
 import Groups from "./Groups";
+import './createQuiz.css'
 
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
@@ -61,8 +62,44 @@ const CreateQuiz = () => {
     postQuestions();
   }, [postQuestions])
 
-return(
-  <h1>Loading...</h1>
+return( <main className="macbook-pro-14-4">
+<aside className="youready">
+  <strong className="are-you-ready-wrapper">
+    <div className="are-you-ready-container">
+      <p className="are-you">Are You</p>
+      <p className="are-you"> Ready?</p>
+    </div>
+  </strong>
+  <img
+    className="icon-message-question"
+    alt=""
+    src="/-icon-message-question.svg"
+  />
+</aside>
+<img
+  className="speakerphoneoutline-icon"
+  alt=""
+  src="/speakerphoneoutline.svg"
+/>
+<div className="options">
+  <button className="next1" onClick={(e) =>{ navigate('/groups')}}>
+    <div className="back">Next</div>
+    <img
+      className="airplane-take-off"
+      alt=""
+      src="/airplane-take-off@2x.png"
+    />
+  </button>
+  <button className="next1" onClick={(e) =>{ navigate('/')}}>
+    <div className="back ">Back</div>
+    <img
+      className="airplane-take-off"
+      alt=""
+      src="/airplane-landing@2x.png"
+    />
+  </button>
+</div>
+</main>
 )
   
 }

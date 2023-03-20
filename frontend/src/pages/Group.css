@@ -245,7 +245,12 @@ ul > li{
 .enter-group-name {
 	align-self: stretch;
 	flex: 1;
-	position: relative
+	position: relative;
+	background:var(--small-box-background);
+	font-size: 1.2rem;
+	color: var(--color-white);
+	border: none;
+	border-radius: 20px;
 }
 
 .group-name {

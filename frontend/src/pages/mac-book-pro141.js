@@ -1,3 +1,4 @@
+import "./mac-book-pro141.css";
 import React from 'react'
 import api from "../api/users";
 import { useState, useEffect } from 'react';
@@ -8,24 +9,23 @@ import { useNavigate } from "react-router-dom";
 import { decode } from "html-entities";
 import { useDispatch } from "react-redux";
 import { handleScoreChange } from '../redux/actions';
-import './Question.css'
+import "../global.css"
 
-const Questions = ({ socket }) => {
-
+const MacBookPro141 = () => {
   const getRandomInt = (max) => {
     return Math.floor(Math.random() * Math.floor(max));
   };
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const {quizid, score, user , groupId} = useSelector((state) => state)
+  const {quizid, score, user} = useSelector((state) => state)
     const [questionIndex, setQuestionIndex] = useState(0);
     const [options, setOptions] = useState([]);
     const [response, setResponse] = useState([])
-    const [select, setSelect] = useState();
-
-    const [count , setCount] = useState(0);
-    useEffect(() => { 
+    const [select, setSelect] = useState()
+ 
+    useEffect(() => {
+      
       const getQuestions = async() => {
         try {
           const questions = await api.post(`/quiz/questions`,{
@@ -44,8 +44,9 @@ const Questions = ({ socket }) => {
     },[])
   
        useEffect(() => {
-      if (response.length !== 0) {
+      if (response?.length !== 0) {
         const ques = response[questionIndex]
+         const question = ques.question;
         let answers = [...ques.incorrect_answers];
         answers.splice(
           getRandomInt(ques.incorrect_answers.length),
@@ -63,17 +64,23 @@ const Questions = ({ socket }) => {
         </Box>
       );
     } */
+
+
     const handleSelectAnswer = (e) =>{
       setSelect(e.target.textContent)
-      console.log(select) 
+      
     }
-  useEffect(() =>{
-    socket?.on('nextClicked' ,async () =>{
-      console.log('next clicked')
+    
+    
+    const handleClickAnswer = async (e) => {
       const question = response[questionIndex];
+      console.log(question);
+      console.log(select)
       if (select === question.correct_answer) {
         dispatch(handleScoreChange(score + 1));
+        
       }
+  
       if (questionIndex + 1 < response.length) {
         setQuestionIndex(questionIndex + 1);
       } else {
@@ -92,20 +99,9 @@ const Questions = ({ socket }) => {
         }
         navigate("/score");
       }
-    })
-  } , [questionIndex])
-    
-    
-    const handleClickAnswer = async (e) => {
-      setCount(count + 1)
-      console.log(select);
-      socket?.emit('next' , {
-        groupId:  groupId
-      })
-      
     };
-  if(response[questionIndex] !== undefined)
-    {return ( <div className="macbook-pro-14-1">
+  return (
+    <div className="macbook-pro-14-1">
       <div className="discord-parent">
         <div className="instance-wrapper">
           <div className="frame-parent2">
@@ -140,23 +136,17 @@ const Questions = ({ socket }) => {
     ))}
      </div>
             </div>
-            {user.isLeader &&
             <div className="frame-parent4">
               <button className="next-wrapper" onClick={handleClickAnswer}>
                 <div className="next">Next</div>
               </button>
-              </div>
-            }
+              
+            </div>
           </div>
         </div>
       </div>
-    )}
-    else{
-      return
-      (<h1>Loading</h1>)
-    }
-}
+    
+  );
+};
 
-  
-
-export default Questions
+export default MacBookPro141;

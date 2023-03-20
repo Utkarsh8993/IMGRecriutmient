@@ -18,7 +18,7 @@ router.route('/login')
 router.route('/register')
     .post(authControllers.handleRegister)    
 router.route('/logout')
-    .get(passport.authenticate('jwt' , {session : false}) ,authControllers.handleLogout)
+    .get(authControllers.handleLogout)
 
 
     module.exports = router

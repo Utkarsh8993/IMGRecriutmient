@@ -62,9 +62,6 @@ const FinalScreen = () => {
       <Button onClick={handleBackToSettings} variant="outlined">
         back to settings!
       </Button>
-      <Button onClick={finalList} variant="outlined">
-        ScoreCard
-      </Button>
       {grps?.map((item, index) => (
         <ul>
           <li>{item.name}</li>

@@ -143,7 +143,7 @@ const deleteOneGroup =asyncHandler(async (id) =>{
 }) 
 
 const removeTheUser = asyncHandler(async (req,res)=>{
-    if(!req?.body?.id) return res.status(404).json({message : 'The id must be provided'})
+    if(!req?.body?.id) return res.status(400).json({message : 'The id must be provided'})
     if(!req?.user?._id) return res.status(403).json({ message : 'You must be logged in'});
     try {
         const user = await User.findOne({ _id : req.user._id}).exec();
@@ -163,7 +163,8 @@ const removeTheUser = asyncHandler(async (req,res)=>{
 
                 const result = await User.findByIdAndUpdate(req.user._id , {
                     isPart: false
-                })
+         })
+
                 userArray.splice(index , 1);
                 group.UserArray = userArray;
                 await group.save();

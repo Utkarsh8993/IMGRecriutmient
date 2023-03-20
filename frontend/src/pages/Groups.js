@@ -53,7 +53,7 @@ const Groups = ({ socket }) => {
       } catch (error) {
         console.log(error)
       }
-      
+    
     }
     const handleGrpEntry = async (e,key) =>{
         e.preventDefault();
@@ -73,12 +73,16 @@ const Groups = ({ socket }) => {
     const handleGrpExit = async (e,key) =>{
       console.log('hello')
         e.preventDefault();
+        
         const exit = await api.post("/groups/remove", {
            id : key
         },{
           withCredentials:true
         })
         console.log(exit);
+        socket?.emit('groupExit' ,{
+          groupId: groupId
+        })
       }
     const startQuiz = async (e) => {
       
@@ -115,7 +119,15 @@ const Groups = ({ socket }) => {
             </div>
             <img className="grpname-child" alt="" src="/vector-22.svg" />
           </div>
+          
+          
+        
           <img className="vector-icon" alt="" src="/vector.svg" onClick={(e) => handleGrpEntry(e , item._id)} />
+          <button /* className="add-button" */ onClick={(e) => handleGrpExit(e)}>
+            <div className="add" >Exit</div>
+          </button>
+       
+         
           </div>
            
         ))
@@ -135,6 +147,7 @@ const Groups = ({ socket }) => {
             <div className="add">Add</div>
           </button>
         </div>
+        
         <div className="frame-parent5">
         {user.isCreater &&
           

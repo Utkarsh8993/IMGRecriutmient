@@ -54,7 +54,7 @@ const handlePassportLogin = asyncHandler(async (req , res)=>{
         secure:true
     })
     //redirect;
-    res.redirect('http://localhost:3000')
+    res.redirect('http://localhost:3000/h')
     }
 )
 
@@ -78,6 +78,7 @@ const handleRegister =asyncHandler( async (req,res) =>{
 })
 
 const handleLogout = (req,res) =>{
+    console.log('hellop')
     if(!req?.cookies?.jwt ||!req?.cookies?.decoder ) return res.status(204).json({message : 'No cookie'})
     res.clearCookie('jwt');
     res.clearCookie('decoder')
