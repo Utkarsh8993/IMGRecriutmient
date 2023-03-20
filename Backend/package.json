@@ -2,7 +2,7 @@
   "name": "mern-project",
   "version": "1.0.0",
   "description": "Technotes Mern Project",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server",
     "build" : "npm i"
