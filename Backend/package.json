@@ -4,7 +4,8 @@
   "description": "Technotes Mern Project",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server"
+    "start": "nodemon server",
+    "build" : "npm i"
   },
   "author": "",
   "license": "ISC",
